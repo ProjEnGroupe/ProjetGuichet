@@ -9,7 +9,7 @@ namespace Guichet
     {
        public  void afficherMenu()
         {
-
+            Console.WriteLine("aaaa");
             Console.WriteLine("---------------Menu guichet automatique-----------");
             Console.WriteLine();
             Console.WriteLine("--------Veuillez choisir l'une des actions suivantes------");
