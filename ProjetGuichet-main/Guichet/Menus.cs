@@ -31,7 +31,7 @@ namespace Guichet
             Console.WriteLine("\t1- Remettre le guichet en fonction");
             Console.WriteLine("\t2- Déposer de l'argent dans le guichet");
             Console.WriteLine("\t3- Voir le solde du guichet");
-            Console.WriteLine("\t4- Retourner au menu principal");
+            Console.WriteLine("\t4- Voir la liste des comptes");
             Console.WriteLine("\t5- Retourner au menu principal");
         }
     }
