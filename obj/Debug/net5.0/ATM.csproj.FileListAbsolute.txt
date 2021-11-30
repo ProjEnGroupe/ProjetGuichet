@@ -1,0 +1,32 @@
+C:\Users\Abdelbaki\source\repos\ATM\bin\Debug\net5.0\ATM.exe
+C:\Users\Abdelbaki\source\repos\ATM\bin\Debug\net5.0\ATM.deps.json
+C:\Users\Abdelbaki\source\repos\ATM\bin\Debug\net5.0\ATM.runtimeconfig.json
+C:\Users\Abdelbaki\source\repos\ATM\bin\Debug\net5.0\ATM.runtimeconfig.dev.json
+C:\Users\Abdelbaki\source\repos\ATM\bin\Debug\net5.0\ATM.dll
+C:\Users\Abdelbaki\source\repos\ATM\bin\Debug\net5.0\ref\ATM.dll
+C:\Users\Abdelbaki\source\repos\ATM\bin\Debug\net5.0\ATM.pdb
+C:\Users\Abdelbaki\source\repos\ATM\obj\Debug\net5.0\ATM.csproj.AssemblyReference.cache
+C:\Users\Abdelbaki\source\repos\ATM\obj\Debug\net5.0\ATM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Abdelbaki\source\repos\ATM\obj\Debug\net5.0\ATM.AssemblyInfoInputs.cache
+C:\Users\Abdelbaki\source\repos\ATM\obj\Debug\net5.0\ATM.AssemblyInfo.cs
+C:\Users\Abdelbaki\source\repos\ATM\obj\Debug\net5.0\ATM.csproj.CoreCompileInputs.cache
+C:\Users\Abdelbaki\source\repos\ATM\obj\Debug\net5.0\ATM.dll
+C:\Users\Abdelbaki\source\repos\ATM\obj\Debug\net5.0\ref\ATM.dll
+C:\Users\Abdelbaki\source\repos\ATM\obj\Debug\net5.0\ATM.pdb
+C:\Users\Abdelbaki\source\repos\ATM\obj\Debug\net5.0\ATM.genruntimeconfig.cache
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\bin\Debug\net5.0\ATM.exe
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\bin\Debug\net5.0\ATM.deps.json
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\bin\Debug\net5.0\ATM.runtimeconfig.json
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\bin\Debug\net5.0\ATM.runtimeconfig.dev.json
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\bin\Debug\net5.0\ATM.dll
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\bin\Debug\net5.0\ref\ATM.dll
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\bin\Debug\net5.0\ATM.pdb
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\obj\Debug\net5.0\ATM.csproj.AssemblyReference.cache
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\obj\Debug\net5.0\ATM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\obj\Debug\net5.0\ATM.AssemblyInfoInputs.cache
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\obj\Debug\net5.0\ATM.AssemblyInfo.cs
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\obj\Debug\net5.0\ATM.csproj.CoreCompileInputs.cache
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\obj\Debug\net5.0\ATM.dll
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\obj\Debug\net5.0\ref\ATM.dll
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\obj\Debug\net5.0\ATM.pdb
+C:\Users\Abdelbaki\OneDrive\Bureau\Projet C#\ATM\obj\Debug\net5.0\ATM.genruntimeconfig.cache
