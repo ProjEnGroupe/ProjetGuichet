@@ -2,11 +2,11 @@
 
 namespace Guichet
 {
-    class Controller
+    public class Controller
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Guichet guichet = new Guichet();
+            Guichet guichet = Guichet.GetInstance();
             guichet.CheckGuichetState();
 
             Console.ReadKey();

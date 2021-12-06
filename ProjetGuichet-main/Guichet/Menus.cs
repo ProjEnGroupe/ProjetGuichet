@@ -6,6 +6,7 @@ namespace Guichet
 {
     public class Menus
     {
+        
         public void GetMainMenu()
         {
             Console.WriteLine("\tVeuillez choisir l'une des actions suivantes:");

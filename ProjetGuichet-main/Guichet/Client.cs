@@ -7,24 +7,27 @@ namespace Guichet
     public class Client
     {
         private string nom;
-        private string numeroCompte;
+        private CompteClient compteEpargne;
+        private CompteClient compteCheck;
         private string password;
-        private State state = State.ACTIVE;
-        private CompteClient compte;
+        private Etat etat = Etat.ACTIVE;
 
+        public Client() { }
         public Client(string nom, string password)
         {
             Nom = nom;
             Password = password;
-            State = state;
+            Etat = etat;
         }
-        public Client(string nom, string password, string numeroCompte, State state)
+        public Client(string nom, string password, CompteClient compteEpargne, CompteClient compteCheck,Etat etat)
         {
             Nom = nom;
             Password = password;
-            NumeroCompte = numeroCompte;
-            State = state;
-            
+            CompteEpargne = compteEpargne;
+            Etat = etat;
+            CompteCheck = compteCheck;
+
+
         }
 
         public string Nom
@@ -38,13 +41,14 @@ namespace Guichet
             set { this.password = value; }
         }
 
-        public string NumeroCompte
+        public Etat Etat
         {
-            get { return numeroCompte;  }
-            set { this.numeroCompte = value;}
+            get { return etat; }
+            set { etat = value; }
         }
 
-        public State State { get => state; set => state = value; }
-        internal CompteClient Compte { get => compte; set => compte = value; }
+        public CompteClient CompteEpargne { get => compteEpargne; set => compteEpargne = value; }
+        public CompteClient CompteCheck { get => compteCheck; set => compteCheck = value; }
+
     }
 }
