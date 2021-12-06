@@ -10,10 +10,12 @@ namespace Guichet
     public class Guichet
     {
         // initialize
-        public static int montant;
+        public static double montant;
         public Etat etat;
-        int counter = 1;
+        public int counter = 1;
         public static List<Client> clients = new List<Client>();
+        public static List<Client> temps = new List<Client>();
+        Client client = new Client();
 
 
         // instantiate
@@ -23,11 +25,12 @@ namespace Guichet
 
         Utilisateur utilisateur = new Utilisateur();
 
-        
-        // property of Montant
-        public static int Montant { get => montant; set => montant = value; }
+        IEverifying everifying = new Everifying();
 
-        
+        // property of Montant
+        public static double Montant { get => montant; set => montant = value; }
+
+
         /// <summary>
         /// Constructor
         ///     initialize le Guichet status activate
@@ -36,18 +39,38 @@ namespace Guichet
         ///     
         ///     initialize la liste des usagers avec nom de compt, nip, etat acitvate
         /// </summary>
-        public Guichet()
+        private Guichet()
         {
             this.etat = Etat.ACTIVE;
             Montant = 10000;
-            clients.Add( new Client("remybozo", "remy", "2...018-01", "3...018-01", Etat.ACTIVE));
-            clients.Add( new Client("jeanmari", "jean", "2...019-02", "3...019-02", Etat.ACTIVE));
-            clients.Add( new Client("ludocord", "ludo", "2...019-06", "3...019-06", Etat.ACTIVE));
-            clients.Add( new Client("boniface", "boni", "2...018-08", "3...018-08", Etat.ACTIVE));
-            clients.Add( new Client("henripas", "henr", "2...020-56", "3...020-56", Etat.ACTIVE));
-            clients.Add( new Client("admin", "123456"));
+            //clients.Add(new Client("remybozo", "remy", new CompteEpargne("2...018-01"), new CompteCheque("3...018-01"), Etat.ACTIVE));
+            //clients.Add(new Client("jeanmari", "jean", new CompteEpargne("2...019-02"), new CompteCheque("3...019-02"), Etat.ACTIVE));
+            //clients.Add(new Client("ludocord", "ludo", new CompteEpargne("2...019-06"), new CompteCheque("3...019-06"), Etat.ACTIVE));
+            //clients.Add(new Client("boniface", "boni", new CompteEpargne("2...018-08"), new CompteCheque("3...018-08"), Etat.ACTIVE));
+            //clients.Add(new Client("henripas", "henr", new CompteEpargne("2...020-56"), new CompteCheque("3...020-56"), Etat.ACTIVE));
+            //clients.Add(new Client("admin", "123456"));
+
+            clients.Add(new Client() { Nom = "remybozo", Password = "remy", CompteEpargne = new CompteEpargne("2...018-01"), CompteCheck = new CompteCheque("3...018-01"), Etat = Etat.ACTIVE });
+            clients.Add(new Client() { Nom = "jeanmari", Password = "jean", CompteEpargne = new CompteEpargne("2...019-02"), CompteCheck = new CompteCheque("3...019-02"), Etat = Etat.ACTIVE });
+            clients.Add(new Client() { Nom = "ludocord", Password = "ludo", CompteEpargne = new CompteEpargne("2...019-06"), CompteCheck = new CompteCheque("3...019-06"), Etat = Etat.ACTIVE });
+            clients.Add(new Client() { Nom = "boniface", Password = "boni", CompteEpargne = new CompteEpargne("2...018-08"), CompteCheck = new CompteCheque("3...018-08"), Etat = Etat.ACTIVE });
+            clients.Add(new Client() { Nom = "henripas", Password = "henr", CompteEpargne = new CompteEpargne("2...020-56"), CompteCheck = new CompteCheque("3...020-56"), Etat = Etat.ACTIVE });
+            clients.Add(new Client() { Nom = "admin", Password = "123456" });
 
         }
+        private static Guichet instance;
+        //private static readonly object padlock = new object();
+        public static Guichet GetInstance()
+        {
+
+            if (instance == null)
+            {
+                instance = new Guichet();
+            }
+            return instance;
+
+        }
+
 
         // Démarrer le guichet en fonction
         public void StartGuichet()
@@ -60,19 +83,19 @@ namespace Guichet
 
         public void CheckGuichetState()
         {
-            if (this.etat.Equals(Etat.ACTIVE) && Montant > 0)
+            if (GetInstance().etat.Equals(Etat.ACTIVE) && Montant > 0)
             {
                 Console.WriteLine($"Le guichet est {this.etat.ToString()}.");
                 Console.WriteLine($"Le montant est {Montant}$");
                 StartGuichet();
             }
             else
-            {   
+            {
                 administrateur.RemettreGuichet();
             }
         }
-        
-        
+
+
 
         public void AfficherMenu()
         {
@@ -88,7 +111,6 @@ namespace Guichet
 
                 case "2":
                     AskUserInfo();
-                    //AfficherAdminAcct();
                     break;
                 case "3":
                     Console.WriteLine("Merci d'utiliser vos services, au revoir.");
@@ -104,21 +126,15 @@ namespace Guichet
             Console.WriteLine("Enter your password");
             string password = Console.ReadLine();
 
-            Client c = new Client(nom, password);
-            getUserInfo(c);
+            getUserInfo(nom, password);
         }
 
-        public void getUserInfo(Client client)
+        public void getUserInfo(string nom, string password)
         {
-            //bool b = CheckUserInfo(nom, password);
-            //Client c = CheckUserInfo(client);
-            
-            //bool b = clients.Contains(new Client { client.Nom, client.Password });
-            //bool b = clients.Contains(new Client { Nom = client.Nom, Password = client.Password });
-            Client c = clients.Find(x => x.Nom.Contains(client.Nom));
-            bool b = clients.Exists(c => c.Nom == client.Nom);
-            Console.WriteLine($"b: {b}, nom: {client.Nom}, password: {client.Password}");
-            if (!b)
+            bool b = CheckUserInfoBool(nom, password);
+            client = CheckUserInfo(nom, password);
+
+            if ((!b)||(client.Equals(null)))
             {
                 if (counter < 3)
                 {
@@ -127,45 +143,55 @@ namespace Guichet
                 }
                 else
                 {
-                    Verrouiller(client.Nom);
+                    Verrouiller(nom);
                 }
             }
-            else
+            else 
             {
-                if (client.Nom.Equals("admin"))
+                if (nom.Equals("admin"))
                 {
                     AfficherAdminAcct();
                 }
-                else
+                else 
                 {
                     AfficherUserMenu();
                 }
-
             }
         }
-
-        //public Client CheckUserInfo(Client client)
-        //{
-        //    Client cl = new Client();
-        //    foreach (var c in clients)
-        //    {
-        //        if (c.Nom.Equals(client.Nom) && c.Password.Equals(client.Password))
-        //        {
-        //            Console.WriteLine($"client: {c.Nom}, password: {c.Password}");
-        //            cl = client;
-        //        }
-        //        else
-        //        {
-        //            Console.WriteLine("N'existe pas ce compte.");
-        //        }
-        //    }
-        //    return cl;
-        //}
+        public bool CheckUserInfoBool(string nom, string password)
+        {
+            
+            bool b = false;
+            foreach (Client c in clients)
+            {
+                if (c.Nom.Equals(nom) && c.Password.Equals(password))
+                {
+                    Console.WriteLine($"client: {c.Nom}, password: {c.Password}");
+                    b = true;
+                }
+            }
+            return b;
+        }
+        public Client CheckUserInfo(string nom, string password)
+        {
+            //bool b1 = clients.Exists(c=> c.Nom == nom);
+            foreach (Client c in clients)
+            {
+                if (c.Nom.Equals(nom) && c.Password.Equals(password))
+                {
+                    client = c;
+                    Console.WriteLine($"client: {client.Nom}, password: {client.Password}");
+                }
+            }
+            return client;
+        }
         public void Verrouiller(string nom)
         {
             this.etat = Etat.DEACTIVE;
             counter = 1;
+            //everifying.DemanderActivate(client, administrateur);
             DemanderActivate(nom);
+            
         }
 
         /// <summary>
@@ -174,38 +200,38 @@ namespace Guichet
         /// <param name="nom"></param>
         public void DemanderActivate(string nom)
         {
-            Console.WriteLine($"{nom}, votre compte est { this.etat.ToString()}");
-            Console.WriteLine("Would you like to call a customer service, y or n ");
+            Console.WriteLine($"This account is { this.etat.ToString()}");
+            Console.WriteLine("Would you like to activate your account, (y)  ");
             string yn = Console.ReadLine();
             string status = this.etat.ToString();
             if (yn.ToLower().Equals("y"))
             {
                 status = administrateur.ResetState();
                 Console.Clear();
-                Console.WriteLine($"{nom}, votre compte est { status}");
+                Console.WriteLine($"One of enter is invalid, your account is { status}");
 
                 AfficherMenu();
             }
-            else
-            {
-                Console.WriteLine($"{nom}, votre compte est { status}");
-                Console.Clear();
-                AfficherMenu();
-            }
+            //else
+            //{
+            //    Console.WriteLine($"{nom}, votre compte est { status}");
+            //    Console.Clear();
+            //    AfficherMenu();
+            //}
         }
 
-        public void CallAdministrateur()
-        {
+        //public void CallAdministrateur()
+        //{
             
-            if (Montant <= 0)
-            {
-                Montant = 10000;
-            }
-            if (this.etat.Equals(Etat.DEACTIVE))
-            {
-                this.etat = Etat.ACTIVE;
-            }
-        }
+        //    if (Montant <= 0)
+        //    {
+        //        Montant = 10000;
+        //    }
+        //    if (this.etat.Equals(Etat.DEACTIVE))
+        //    {
+        //        this.etat = Etat.ACTIVE;
+        //    }
+        //}
          
 
         public void AfficherAdminAcct()
@@ -220,7 +246,7 @@ namespace Guichet
             {
                 case "1":
                     //1 - Remettre le guichet en fonction
-                    AskUserInfo();
+                    //AskUserInfo();
                     administrateur.RemettreGuichet();
                     break;
                 case "2":
@@ -237,17 +263,17 @@ namespace Guichet
                     break;
                 case "5":
                     //5 - Retourner au menu principal
-                    Console.WriteLine("Merci d'utiliser vos services, au revoir.");
+                    Console.WriteLine("Administrator, au revoir.");
+                    Console.ReadKey();
                     AfficherMenu();
                     break;
             }
         }
 
-        
-
         public void AfficherUserMenu()
         {
             Console.Clear();
+            Console.WriteLine($"\tHello, {client.Nom}");
             menus.GetUserMenu();
             string choix = Console.ReadLine();
             
@@ -255,37 +281,60 @@ namespace Guichet
             {
                 case "1":
                     // changer le mot de passe
-                    utilisateur.UpdateMotPasse();
+                    utilisateur.UpdateMotPasse(this.client);
+                    
                     break;
                 case "2":
                     // deposer un montant dans un compte
-                    utilisateur.DeposerArgent();
+                    utilisateur.DeposerArgent(this.client);
                     break;
                 case "3":
                     // retirer un montant d'un compte
-                    utilisateur.RetirerArgent();
+                    utilisateur.RetirerArgent(this.client);
                     break;
                 case "4":
                     // afficher le solde du compte cheque ou epargne
-                    utilisateur.AfficherSolde();
+                    utilisateur.AfficherSolde(this.client);
                     break;
                 case "5":
                     // effectuer un virement entre les comptes
-                    utilisateur.EffectuerVirement();
+                    utilisateur.EffectuerVirement(this.client);
                     break;
                 case "6":
                     // payer une facture
-                    utilisateur.PayerFacture();
+                    utilisateur.PayerFacture(this.client);
                     break;
                 case "7":
                     // fermer session
-                    //utilisateur.LogoutUserAcct();
-                    Console.WriteLine("Merci d'utiliser vos services, au revoir.");
+                    Console.WriteLine("Utilisateur logout, au revoir.");
+                    Console.ReadKey();
                     AfficherMenu();
                     break;
             }
+        }
 
+        public void RemoveClient(Client client)
+        {
+            
+            if (clients.Contains(client)) 
+            {
+                temps.Add(client);
+                clients.Remove(client);
+            }
+            //foreach (var cl in clients)
+            //{
+            //    Console.WriteLine($"nom: {cl.Nom}, nip: {cl.Password}, Epargne: {cl.CompteEpargne.ToString()}, Cheque: {cl.CompteCheck.ToString()}");
+            //}
+            
+        }
 
+        public void RetrieveClient() 
+        {
+            foreach(Client t in temps)
+            {
+                Console.WriteLine($"nom: {t.Nom}, nip: {t.Password}, Epargne: {t.CompteEpargne.ToString()}, Cheque: {t.CompteCheck.ToString()}");
+                clients.Add(t);
+            }
         }
     }
 }

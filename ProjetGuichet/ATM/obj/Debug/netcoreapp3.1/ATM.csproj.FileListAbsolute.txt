@@ -1,0 +1,14 @@
+C:\Users\r8990\source\repos\ProjetGuichet\ATM\bin\Debug\netcoreapp3.1\ATM.exe
+C:\Users\r8990\source\repos\ProjetGuichet\ATM\bin\Debug\netcoreapp3.1\ATM.deps.json
+C:\Users\r8990\source\repos\ProjetGuichet\ATM\bin\Debug\netcoreapp3.1\ATM.runtimeconfig.json
+C:\Users\r8990\source\repos\ProjetGuichet\ATM\bin\Debug\netcoreapp3.1\ATM.runtimeconfig.dev.json
+C:\Users\r8990\source\repos\ProjetGuichet\ATM\bin\Debug\netcoreapp3.1\ATM.dll
+C:\Users\r8990\source\repos\ProjetGuichet\ATM\bin\Debug\netcoreapp3.1\ATM.pdb
+C:\Users\r8990\source\repos\ProjetGuichet\ATM\obj\Debug\netcoreapp3.1\ATM.csproj.AssemblyReference.cache
+C:\Users\r8990\source\repos\ProjetGuichet\ATM\obj\Debug\netcoreapp3.1\ATM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\r8990\source\repos\ProjetGuichet\ATM\obj\Debug\netcoreapp3.1\ATM.AssemblyInfoInputs.cache
+C:\Users\r8990\source\repos\ProjetGuichet\ATM\obj\Debug\netcoreapp3.1\ATM.AssemblyInfo.cs
+C:\Users\r8990\source\repos\ProjetGuichet\ATM\obj\Debug\netcoreapp3.1\ATM.csproj.CoreCompileInputs.cache
+C:\Users\r8990\source\repos\ProjetGuichet\ATM\obj\Debug\netcoreapp3.1\ATM.dll
+C:\Users\r8990\source\repos\ProjetGuichet\ATM\obj\Debug\netcoreapp3.1\ATM.pdb
+C:\Users\r8990\source\repos\ProjetGuichet\ATM\obj\Debug\netcoreapp3.1\ATM.genruntimeconfig.cache

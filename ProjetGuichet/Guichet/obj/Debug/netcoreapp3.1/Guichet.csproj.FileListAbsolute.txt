@@ -1,0 +1,10 @@
+C:\Users\r8990\source\repos\ProjetGuichet\Guichet\bin\Debug\netcoreapp3.1\Guichet.deps.json
+C:\Users\r8990\source\repos\ProjetGuichet\Guichet\bin\Debug\netcoreapp3.1\Guichet.dll
+C:\Users\r8990\source\repos\ProjetGuichet\Guichet\bin\Debug\netcoreapp3.1\Guichet.pdb
+C:\Users\r8990\source\repos\ProjetGuichet\Guichet\obj\Debug\netcoreapp3.1\Guichet.csproj.AssemblyReference.cache
+C:\Users\r8990\source\repos\ProjetGuichet\Guichet\obj\Debug\netcoreapp3.1\Guichet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\r8990\source\repos\ProjetGuichet\Guichet\obj\Debug\netcoreapp3.1\Guichet.AssemblyInfoInputs.cache
+C:\Users\r8990\source\repos\ProjetGuichet\Guichet\obj\Debug\netcoreapp3.1\Guichet.AssemblyInfo.cs
+C:\Users\r8990\source\repos\ProjetGuichet\Guichet\obj\Debug\netcoreapp3.1\Guichet.csproj.CoreCompileInputs.cache
+C:\Users\r8990\source\repos\ProjetGuichet\Guichet\obj\Debug\netcoreapp3.1\Guichet.dll
+C:\Users\r8990\source\repos\ProjetGuichet\Guichet\obj\Debug\netcoreapp3.1\Guichet.pdb
